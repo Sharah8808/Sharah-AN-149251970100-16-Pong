@@ -11,9 +11,9 @@ public class GoalController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision){
         if(collision == ball){
             if(isRight){
-                manager.AddRightScore(1);
-            } else {
                 manager.AddLeftScore(1);
+            } else {
+                manager.AddRightScore(1);
             }
         }
     }

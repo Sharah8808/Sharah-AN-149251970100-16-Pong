@@ -14,9 +14,11 @@ public class PaddleController : MonoBehaviour
 
     private void Update(){
         MoveObject(GetInput());
+        Debug.Log("Paddle speed : " + speed);
     }
     
     private Vector2 GetInput(){
+        
         if (Input.GetKey(upKey)){
             return Vector2.up * speed;
         }
@@ -28,6 +30,7 @@ public class PaddleController : MonoBehaviour
 
     private void MoveObject(Vector2 movement){
         rig.velocity = movement;
+        
     }
 
 }

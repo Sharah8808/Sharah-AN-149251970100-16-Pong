@@ -40,7 +40,6 @@ public class PowerUpManager : MonoBehaviour
 
     public void GenerateRandomPowerUp(Vector2 position){
         // Debug.Log("Test");
-
         if(powerUpList.Count >= maxPowerUpAmount){
             return;
         }

@@ -8,6 +8,8 @@ public class BallController : MonoBehaviour
     private Rigidbody2D rig;
     public Vector2 resetPosition;
 
+    public bool isLeft;
+
     private void Start(){
         rig = GetComponent<Rigidbody2D>();
         rig.velocity = speed;
@@ -21,5 +23,15 @@ public class BallController : MonoBehaviour
         rig.velocity *= magnitude;
     }
 
+    public void OnCollisionEnter2D(Collision2D other){
+         if (other.gameObject.name == "Paddle Kiri"){
+            // Debug.Log("kiirriii");
+            isLeft = true;
+        }
+        else if((other.gameObject.name == "Paddle Kanan")){
+            isLeft = false;
+            // Debug.Log("kanaannn aaaaa");
+        }
+    }
     
 }

@@ -8,8 +8,10 @@ public class PaddleController : MonoBehaviour
     public KeyCode upKey, downKey;
     private Rigidbody2D rig;
 
-    private float timer;
+    private float timerPU;
+    private float timerSU;
     private bool isPU;
+    private bool isSU;
 
     private Vector2 resetScale;
     private int resetSpeed;
@@ -20,6 +22,7 @@ public class PaddleController : MonoBehaviour
         resetScale = transform.localScale;
         resetSpeed = speed;
         isPU = false;
+        isSU = false;
     }
 
     private void Update(){
@@ -27,14 +30,22 @@ public class PaddleController : MonoBehaviour
         Debug.Log("Paddle speed : " + speed);
 
         if(isPU){
-            // Debug.Log("TIMERRR NOOO");
-            timer += Time.deltaTime;
-            if(timer > 4){
+            // Debug.Log("TIMERPURR NOOO");
+            timerPU += Time.deltaTime;
+            if(timerPU > 4){
+                // Debug.Log("udh 5 detik?");
+                speed = resetSpeed;
+                timerPU = 0;
+                isPU = false;
+                
+            }
+        } else if(isSU){
+            timerSU += Time.deltaTime;
+            if(timerSU > 4){
                 // Debug.Log("udh 5 detik?");
                 transform.localScale = new Vector2(resetScale.x, resetScale.y);
-                speed = resetSpeed;
-                timer = 0;
-                isPU = false;
+                timerSU = 0;
+                isSU = false;
             }
         }
     }
@@ -55,7 +66,11 @@ public class PaddleController : MonoBehaviour
 
     public void ActivatePUPaddle(){
         isPU = true;
-        transform.localScale = new Vector2(-transform.localScale.x, (transform.localScale.y + 1));
         speed *= 2;
+    }
+
+    public void ActivateSUPaddle(){
+        isSU = true;
+        transform.localScale = new Vector2(-transform.localScale.x, (transform.localScale.y + 1));
     }
 }

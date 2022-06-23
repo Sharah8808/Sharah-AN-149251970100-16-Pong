@@ -545,6 +545,8 @@ MonoBehaviour:
   maxPowerUpAmount: 2
   powerUpTemplateList:
   - {fileID: 1279470017}
+  - {fileID: 1809145713}
+  - {fileID: 1101957219}
   powerUpAreaMin: {x: -6, y: -4}
   powerUpAreaMax: {x: 6, y: 4}
   spamInterval: 5
